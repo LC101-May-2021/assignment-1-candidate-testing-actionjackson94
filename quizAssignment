@@ -1,0 +1,25 @@
+const input = require('readline-sync');
+let candidateName = input.question("Candidate Name: ")
+let questions = ["1) Who was the first american woman in space?", "2) True or false: 5 kilometer == 5000 meters?","3)(5 + 3)/2 * 10 = ?","4) Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2?","5) What is the minimum crew size for the ISS?"];
+let correctAnswers = ["Sally Ride","true","40","Trajectory","3"];
+let candidateAnswers; 
+let total= 5
+candidateTotal = 0;
+for(i = 0; i < questions.length; i++){
+  candidateAnswers = input.question(questions[i]);
+  console.log(`Your Answer: ${candidateAnswers}`)
+  console.log(`Correct Answer: ${correctAnswers[i]
+  }`)
+  if(candidateAnswers.trim().toLowerCase() === correctAnswers[i].trim().toLowerCase()){
+    candidateTotal += 1
+  }
+  
+}
+percentage = candidateTotal/total * 100;
+
+if(percentage < 80){
+  console.log(`>>> Overall Grade: ${percentage}% (${candidateTotal} of ${total} responses correct) <<<`)
+  console.log(`>>> Status: Failed <<<`)
+} else{console.log(`>>> Overall Grade: ${percentage}% (${candidateTotal} of ${total} responses correct) <<<`)
+console.log(`>>> Status: Passed <<<`)
+}
